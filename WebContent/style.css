@@ -1,0 +1,65 @@
+@charset "UTF-8";
+/* 基本のスタイル */
+h1 {
+	font-size: 32px;
+	margin: 0px;
+	padding: 5x;
+	background: #ff5c00;
+	color: #ffffff;
+	text-align: center;
+}
+
+/* ページ固有のスタイル */
+/* ログインページ */
+form{
+	color: #ff5c00;
+	padding: 8px;
+	text-align: center;
+}
+
+.post {
+	position: relative;
+	margin: 20px 3%;
+	text-align: center;
+}
+
+.post input[type=text] {
+	font: 15px/24px;
+	box-sizing: border-box;
+	margin: 8px 0;
+	padding: 0.5em;
+	transition: 0.3s;
+	border: 2px solid #ff5c00;
+	border-radius: 4px;
+	outline: none;
+}
+.post input[type=submit]{
+	width: 100px;
+	padding: 0.3em;
+	text-align: center;
+	text-decoration: none;
+	border: 2px solid #ff5c00;
+	border-radius: 4px;
+	transition: .4s;
+	background: #ffffff;
+}
+
+.post input[type=submit]:hover {
+	background: #ff5c00;
+	color: #fff;
+}
+
+p.mutter {
+	width: 450x;
+	padding: 10px 8px;
+	color: #ff5c00;
+	border-left: 10px solid #ff5c00;
+	border-bottom: 3px solid #ff5c00;
+}
+
+p.user_name {
+	width: 450x;
+	padding: 5px 8px;
+	text-align: center;
+	box-shadow: 0 4px 2px -3px rgba(0,0,0,0.25);
+}
