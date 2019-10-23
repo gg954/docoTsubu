@@ -1,7 +1,7 @@
 package dao;
 
 /*
- * MUTTERƒe[ƒuƒ‹‚ğ’S“–‚·‚éDAO
+ * MUTTERãƒ†ãƒ¼ãƒ–ãƒ«ã‚’æ‹…å½“ã™ã‚‹DAO
  */
 
 import java.sql.Connection;
@@ -14,24 +14,24 @@ import java.util.List;
 import model.Mutter;
 
 public class MutterDAO {
-	//ƒf[ƒ^ƒx[ƒXÚ‘±‚Ég—p‚·‚éî•ñ
+	//ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹æ¥ç¶šã«ä½¿ç”¨ã™ã‚‹æƒ…å ±
 	private final String JDBC_URL = "jdbc:h2:tcp://localhost/~/docoTsubu";
 	private final String DB_USER = "sa";
-	private final String DB_PASS = "Ed1s0n";
+	private final String DB_PASS = "yourPass";
 	
 	public List<Mutter> findAll(){
 		List<Mutter> mutterList = new ArrayList<>();
 		
-		//ƒf[ƒ^ƒx[ƒXÚ‘±
+		//ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹æ¥ç¶š
 		try(Connection con = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)){
-			//Select•¶‚ğì¬
+			//Selectæ–‡ã‚’ä½œæˆ
 			String sql = "SELECT ID, NAME, TEXT FROM MUTTER ORDER BY ID DESC";
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			
-			//Select‚ğÀs
+			//Selectã‚’å®Ÿè¡Œ
 			ResultSet rs = pstmt.executeQuery();
 			
-			//Select•¶‚ÌŒ‹‰Ê‚ğArrayList‚ÉŠi”[
+			//Selectæ–‡ã®çµæœã‚’ArrayListã«æ ¼ç´
 			while (rs.next()) {
 				int id = rs.getInt("ID");
 				String userName = rs.getString("NAME");
@@ -50,18 +50,18 @@ public class MutterDAO {
 	}
 	
 	public boolean create(Mutter mutter) {
-		//ƒf[ƒ^ƒx[ƒXÚ‘±
+		//ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹æ¥ç¶š
 		try(Connection con = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)){
 			
-			//Inesrt•¶‚ğì¬iid‚Í©“®˜A”Ô‚Ì‚½‚ßw’è‚µ‚È‚¢j
+			//Inesrtæ–‡ã‚’ä½œæˆï¼ˆidã¯è‡ªå‹•é€£ç•ªã®ãŸã‚æŒ‡å®šã—ãªã„ï¼‰
 			String sql = "INSERT INTO MUTTER(NAME, TEXT) VALUES(?, ?)";
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			
-			//Insert•¶’†‚Ì?‚Ég—p‚·‚é’l‚ğİ’è‚µ‚ÄASQL‚ğì¬
+			//Insertæ–‡ä¸­ã®?ã«ä½¿ç”¨ã™ã‚‹å€¤ã‚’è¨­å®šã—ã¦ã€SQLã‚’ä½œæˆ
 			pstmt.setString(1, mutter.getUserName());
 			pstmt.setString(2, mutter.getText());
 			
-			//Insert•¶‚ğÀs
+			//Insertæ–‡ã‚’å®Ÿè¡Œ
 			int result = pstmt.executeUpdate();
 			if(result != 1) {
 				return false;
